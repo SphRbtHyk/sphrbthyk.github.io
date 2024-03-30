@@ -1,0 +1,20 @@
+[
+    {
+        "name": "SHERBET",
+        "description": "Reconstruction of the genealogical tree of the Hebrew Bible using computational methods",
+        "duration": "2023-2026",
+        "funding": "ANR"
+    },
+    {
+        "name": "SCRIBES",
+        "description": "Next generation textual criticism software",
+        "duration": "2021-2024",
+        "funding": "Biblissima+"
+    },
+    {
+        "name": "BENTO",
+        "description": "Computational variant analysis of the Ben Sira Tradition",
+        "duration": "2023-2025",
+        "funding": "LUE"
+    }
+]

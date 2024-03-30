@@ -1,0 +1,22 @@
+[
+    {
+        "course": "Introduction to statistical learning",
+        "level": "Bachelor (L3) MIASHS",
+        "university": "Grenoble Alpes University",
+        "description": "Introduction to the basics of statistical learning with Python using sklearn. We study supervised and unsupervised learning, cross-validation, and dimensionality reduction.",
+        "link": "https://github.com/sphrbthyk/miashs_introduction_ml"
+    },
+    {
+        "course": "Introduction to digital humanities",
+        "level": "Masters (M1) Théologie-s",
+        "university": "University of Lorraine",
+        "description": "Introduction to the basics of digital humanities and textual criticism using Python. We study automatic collation, data retrieval through REST API and automatic transcription using Kraken.",
+        "link": "https://github.com/SphRbtHyk/2024_huma_num_lecture"},
+        {
+            "course": "Introduction to the synoptic gospels",
+            "level": "Bachelor (L1) théologie-s",
+            "university": "University of Lorraine",
+            "description": "Generic introduction to the synoptic gospels and to the various suggested solutions to the synoptic problem.",
+            "link": "https://github.com/SphRbtHyk/2024_huma_num_lecture"
+        }
+]

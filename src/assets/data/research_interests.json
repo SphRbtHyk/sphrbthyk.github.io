@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Computational stemmatology",
+        "description": "Modeling the transmission line of ancient manuscript is mandatory to better understand textual transmission and the possible evolutions of textual traditions overtime. I am currently participating in the SHERBET project, and trying to reconstruct the lineage of the Qumran manuscripts, starting with Ben Sira's.",
+        "image": "https://www.w3schools.com/w3images/team2.jpg"
+    },
+    {
+        "name": "Computation and style",
+        "description": "Stylistic analysis can offer a large insight into the authorship of a text, and the possible redactional influences on the text construction. I am currently investigating leveraging such tools for koiné greek to better understand the formation of the synoptic Gospels. I am also studying the resemblance in terms of vocabulary use of the Greek and latin Bible."
+    },
+    {
+        "name": "Machine Learning and supercomputing",
+        "description": "My PhD thesis deals on the improvement of the performance of supercomputers using black-box optimization. I am still exploring this venue of work with Soraya Zertal and Adrian Khelili by designing solutions for intelligent placement of files across the filesystems of hierarchical storage."
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "SHAMan Framework",
+        "description": "A flexible auto-tuning application for finding the optimal parametrization of noisy, expensive systems.",
+        "technology": ["Nuxt.js", "MongoDB", "FastAPI", "Redis"],
+        "link": "https://github.com/bds-ailab/shaman"
+      },
+      {
+        "name": "SCRIBES application",
+        "description": "A real-time collaborative Web application for next-generation textual criticism.",
+        "technology": ["Vue.js", "PostgreSQL", "FastAPI"],
+        "link": "https://github.com/metz-theolab/theolab-api"
+      },
+      {
+        "name": "Bible clusterer application",
+        "description": "An application to visualize the statistical distribution of biblical texts based on their vocabulary similarity.",
+        "technology": ["Vue.js", "MongoDB", "FastAPI", "sklearn"],
+        "link": "https://github.com/sphrbthyk/bible-clusterer"
+      }
+]
