@@ -1,14 +1,16 @@
 <template>
-    <BRow class="text-center">
-    <h3>
-    Selected publications &#x270d;
-</h3>
-</BRow>
-<BRow>
-<BCol>
+
+<v-row no-gutters align="center" justify="center" class="m-auto">
+    <h1>
+        Selected publications in peer-reviewed journals and conferences &#x270d;
+    </h1>
+    </v-row>
+
+    <v-row align="center" justify="center" class="m-auto">
+<v-col>
     <PublicationItem v-for="publication in publications" :title="publication.title" :authors="publication.authors" :venue="publication.venue" :year="publication.year" :category="publication.category"/>
-</BCol>
-</BRow>
+</v-col>
+</v-row>
 </template>
 
 <script>

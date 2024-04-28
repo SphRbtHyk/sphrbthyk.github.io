@@ -1,12 +1,13 @@
 <template>
-    <BRow class="text-center">
-        <BCol>
-            <h3>Software I have developed 👩‍💻</h3>
-        </BCol>
-    </BRow>
-    <BRow>
-            <SoftwareItem v-for="software in softwares" :name="software.name" :description="software.description" :link="software.link" :technology="software.technology"/>
-    </BRow>
+    <v-row no-gutters align="center" justify="center" class="m-auto">
+    <h1>
+        Software I am working on 👩‍💻
+    </h1>
+    </v-row>
+
+    <v-row align="center" justify="center" class="m-auto">
+        <SoftwareItem v-for="software in softwares" :name="software.name" :description="software.description" :link="software.link" :technology="software.technology"/>
+    </v-row>
 </template>
 
 <script>

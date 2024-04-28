@@ -16,5 +16,11 @@
         "description": "An application to visualize the statistical distribution of biblical texts based on their vocabulary similarity.",
         "technology": ["Vue.js", "MongoDB", "FastAPI", "sklearn"],
         "link": "https://github.com/sphrbthyk/bible-clusterer"
+      },
+      {
+        "name": "IO Instrumentation",
+        "description": "Over my two years working at Atos-Bull, I was the lead technical engineer for the development of the I/O instrumentation REST API.",
+        "technology": ["Angular.js", "MongoDB", "FastAPI", "Python"],
+        "link": "https://atos.net/wp-content/uploads/2019/06/Smart-Data-Management-Suite.pdf"
       }
 ]

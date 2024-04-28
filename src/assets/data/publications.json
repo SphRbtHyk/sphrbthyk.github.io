@@ -1,4 +1,5 @@
-[{
+[
+{
     "authors": "Frédérique Rey, Stefan Schorch and Sophie Robert-Hayek",
     "title": "Urtext, Archetype, Fluidity or Textual Convergence. The Quest for the Texts of the Hebrew Bible (Contributions to Biblical Exegesis & Theology)",
     "venue": "Leuven: Peeters. To be published in 2024.",
@@ -38,7 +39,7 @@
         "authors": "Richard Sartori, Emmanuel Jeannot, Sophie Robert-Hayek",
         "title": "Application-Agnostic Auto-tuning of Open MPI Collectives using Bayesian Optimization",
         "venue": "Accepted at IPDPS'24",
-        "year": "N/A",
+        "year": "2024",
         "category": "Proceedings"
       },
       {
@@ -51,21 +52,21 @@
       {
         "authors": "Sophie Robert, Jacques Istas, Frédérique Rey",
         "title": "Unraveling the Synoptic puzzle: stylometric insights into Luke's potential use of Matthew",
-        "venue": "4th Conference On Computational Humanities Research (CHR), 2023",
+        "venue": "4th Conference On Computational Humanities Research (CHR), Paris, France",
         "year": 2023,
         "category": "Proceedings"
       },
       {
         "authors": "Adrian Khelili, Sophie Robert, Soraya Zertal",
         "title": "Forecasting file lifecycles for intelligent data placement in hierarchical storage",
-        "venue": "35th IEEE International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD), 2023",
+        "venue": "35th IEEE International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD), Brasil, 2023",
         "year": 2023,
         "category": "Proceedings"
       },
       {
         "authors": "Sophie Robert, Soraya Zertal, Philippe Couvée",
         "title": "EVADyR: a new dynamic resampling algorithm for optimizing noisy expensive systems",
-        "venue": "9th International Conference on Metaheuristics and Nature Inspired Computing, 2023. Will be included in CCIS",
+        "venue": "9th International Conference on Metaheuristics and Nature Inspired Computing, Morrocco, 2023. Will be included in CCIS",
         "year": 2023,
         "category": "Proceedings"
       },
@@ -86,7 +87,7 @@
       {
         "authors": "Sophie Robert, Soraya Zertal and Grégory Vaumourin",
         "title": "Using genetic algorithms for noisy systems' auto-tuning: an application to the case of burst buffers",
-        "venue": "Presented at the 2020 International Conference on High Performance Computing & Simulation (HPCS'20)",
+        "venue": "Presented at the 2020 International Conference on High Performance Computing & Simulation (HPCS'20), Online (Covid)",
         "year": 2020,
         "category": "Proceedings"
       },
@@ -107,45 +108,10 @@
       {
         "authors": "Sophie Robert, Soraya Zertal and Gaël Goret",
         "title": "Auto-tuning of I/O accelerators using black-box optimization",
-        "venue": "Presented at the 2019 International Conference on High Performance Computing & Simulation (HPCS'19), DOI: 10.1109/HPCS48598.2019.9188173",
+        "venue": "Presented at the 2019 International Conference on High Performance Computing & Simulation (HPCS'19), Dublin, DOI: 10.1109/HPCS48598.2019.9188173",
         "year": 2019,
         "category": "Proceedings"
       },
-        {
-          "authors": "Sophie Robert",
-          "title": "Computational stylometry and the synoptic problem",
-          "venue": "invited talk to the Style and Computation conference, Sønderborg, May 2024",
-          "year": 2024,
-          "category": "Presentation"
-        },
-        {
-          "authors": "Sophie Robert and Frédérique Rey",
-          "title": "Artificial Intelligence and Automatic Source Detection : An application to the case of Q",
-          "venue": "Presented at the 2023 annual meeting of the Society of Biblical Literature, San Antonio, 2023",
-          "year": 2023,
-          "category": "Presentation"
-        },
-        {
-          "authors": "Sophie Robert and Frédérique Rey",
-          "title": "SimScribe: Synthetic Textual Traditions for Stemmatology Benchmarking",
-          "venue": "Presented at the 2023 annual meeting of the Society of Biblical Literature, San Antonio, 2023",
-          "year": 2023,
-          "category": "Presentation"
-        },
-        {
-          "authors": "Sophie Robert",
-          "title": "Using metadata matching for prefetching strategy auto-optimization",
-          "venue": "Presented at the 6th edition of the Performance and Scalability of Storage Systems workshop (PER3S), Paris, 2022",
-          "year": 2022,
-          "category": "Presentation"
-        },
-        {
-          "authors": "Sophie Robert",
-          "title": "Tf-idf for the analysis of the authorship of the deutero-Paulinian epistles",
-          "venue": "Presented at DIGIHEB, Metz, 2021",
-          "year": 2021,
-          "category": "Presentation"
-        },
         {
             "title": "An adaptive resampling strategy for auto-tuning of noisy HPC systems",
             "authors": "Sophie Robert, Soraya Zertal and Grégory Vaumourin",
@@ -165,7 +131,7 @@
             "authors": "Sophie Robert, Soraya Zertal and Gaël Goret",
             "category": "Patent",
             "patent_number": "FR1907135, EU20182708.6, US16/912,802",
-            "year": "N/A"
+            "year": 2019
           }
       
 ]

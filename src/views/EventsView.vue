@@ -1,12 +1,13 @@
 <template>
-    <BRow class="text-center">
-        <BCol>
-            <h3>Events I am organizing 🎉</h3>
-        </BCol>
-    </BRow>
-    <BRow>
+
+    <v-row class="text-center">
+        <v-col>
+            <h1>Events I am organizing 🎉</h1>
+        </v-col>
+    </v-row>
+    <v-row align="center" justify="center" class="m-auto">
         <EventItem v-for="event in events" :name="event.name" :description="event.description" :link="event.link" :date="event.date" :location="event.location"/>
-    </BRow>
+    </v-row>
 </template>
 
 <script>

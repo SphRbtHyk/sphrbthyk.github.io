@@ -1,24 +1,34 @@
-
 <template>
-  <BRow class="m-5">
-  <BCol>
+    <v-row align="center" justify="center" class="m-10">
+
     <h1>Hello, I am <b>Sophie</b> Robert-Hayek !</h1>
-    <BCol >
-      <img style="max-width: 70%;" src="../assets/profile-pic.png" alt="Profile pic" />
-  </BCol>
-  </BCol>
-  <BCol>
-    <div class="m-3">
-    I am a postdoctoral researcher in Computer Science at the University of Lorraine [MSH Lorraine / LORIA], exploring <b>the application of Machine Learning to the study of ancient texts and especially the biblical tradition</b>.
-  </div>
+    </v-row>
 
-    <div class="m-3">
-    I am also very interested in the application of optimization methods to improve supercomputers performance (my PhD topic).
-  </div>
-  E-mail me <BButton variant="primary"><a style="color: white;" href="mailto:sophie.robert@univ-lorraine.fr">here</a></BButton>
+    <v-row align="center" justify="center">
+      <v-col cols="12" sm="6" align="center" justify="center">
+        I am a postdoctoral researcher in Computer Science at the University of Lorraine [<a
+          href="https://www.msh-lorraine.fr/">MSH Lorraine</a>]
+        exploring <b>the application of Machine Learning to the study of ancient texts</b>.
+        
+        I am also currently investigating the application of optimization methods to improve supercomputers performance (my
+        PhD topic).
+         
+          <br>
+          <v-row align="center" justify="center" class="mt-4 mb-6">
+            <v-btn class="mx-auto" color="success" href="mailto:sophie.robert@univ-lorraine.fr">E-mail me
+        </v-btn>
+          <v-btn class="mx-auto" color="primary" href="https://github.com/SphRbtHyk">GitHub
+          </v-btn>
+          </v-row>
 
-  </BCol>
-  </BRow>
+        <div class="m-auto">
+        <img style="max-width: 50%;" src="../assets/profile-pic-bis.png" alt="Profile pic" />
+      </div>
+
+
+      </v-col>
+      
+    </v-row>
 
 </template>
 

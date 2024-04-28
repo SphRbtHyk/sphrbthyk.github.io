@@ -1,24 +1,21 @@
 <template>
-    <BRow class="text-center">
-    <h3>
+    <v-row no-gutters align="center" justify="center" class="m-auto">
+    <h1>
     Current research interests 🔬
-</h3>
-</BRow>
-    <BRow>
-        <BCol v-for="interest in research_interests" :key="interest.name">
-            <BCard class="m-3" :img-src="interest.img" img-top tag="article"
-                style="max-width: 20rem;">
-                <BCardHeader>
-                    <h4>{{ interest.name }}</h4>
-                </BCardHeader>
-                <BCardText>
-                    {{ interest.description }}
-                </BCardText>
-            </BCard>
-        </BCol>
+    </h1>
+    </v-row>
 
-    </BRow>
-
+    <v-row fluid justify="center">
+    <v-card
+      v-for="interest in research_interests" :key="interest.name"
+      subtitle=""
+      :text=interest.description
+      :title=interest.name
+      class="mx-auto mb-10"
+      width="400"
+    >
+</v-card>
+    </v-row>
 </template>
 
 <script>

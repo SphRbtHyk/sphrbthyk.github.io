@@ -1,19 +1,24 @@
 <template>
-    <BCol md="4">
-    <BCard style="min-height: 100%;" class="m-1">
-        <BCardHeader>
-            <h4>{{ course }}</h4>
-        </BCardHeader>
-        <BCardBody>
-            <b-badge variant="success">{{ university }}</b-badge>
-            <b-badge variant="info">{{ level }}</b-badge>
 
-            <BCardText>{{ description }}</BCardText>
+<v-col>
+    <v-card height="300">
+        <v-card-title>
+            <h3>{{ course }}</h3>
+        </v-card-title>
+        <v-card-text>
+            <p class="m-3">{{ description }}</p>
+            <div class="m-3">
+                <v-chip class="m-2" color="primary">{{ university }}</v-chip>
+                <v-chip class="m-2" color="success">{{ level }}</v-chip>
+                <v-chip class="m-2" color="warning">{{ hours }}h</v-chip>
 
-            <a :href="link" class="btn btn-primary m-3">Go to course material</a>
-        </BCardBody>
-    </BCard>
-</BCol>
+            </div>
+            <br>
+            <v-spacer></v-spacer>
+            <v-btn :href="link" class="btn btn-primary m-3">Go to course material</v-btn>
+        </v-card-text>
+    </v-card>
+</v-col>
 </template>
 
 <script>
@@ -24,7 +29,8 @@ export default {
         description: String,
         link: String,
         university: String,
-        level: String
+        level: String,
+        hours: String
     }
 }
 </script>

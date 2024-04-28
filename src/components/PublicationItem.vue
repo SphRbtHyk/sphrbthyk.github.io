@@ -1,10 +1,14 @@
 <template>
-    <BRow>
-        <div>
-            <b-badge :variant=analyzeCategory(category)>{{ category }}</b-badge> <b>{{ title }}</b>, <i>{{ authors
-                }}</i>, {{ venue }}, {{ year }}.
-        </div>
-    </BRow>
+    <v-col>
+            <v-chip :color=analyzeCategory(category) class="mr-2">{{ category }}</v-chip> 
+            <b>{{ title }}</b>
+            <br> 
+            <i>{{ authors
+                }}</i>, 
+            <br>{{ venue }}
+            <br>
+            {{ year }}.
+    </v-col>
 </template>
 
 <script>
@@ -35,7 +39,7 @@ export default {
     },
     methods: {
         analyzeCategory(category) {
-            if (category == "Presentation") {
+            if (category == "Proceedings") {
                 return "warning"
             } else if (category == "Journal") {
                 return "info"

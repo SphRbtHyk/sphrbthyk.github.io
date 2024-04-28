@@ -1,17 +1,21 @@
 <template>
-    <BCol md="4">
-    <BCard style="min-height: 100%;" class="m-1">
-        <BCardHeader>
-            <h4>{{ name }}</h4>
-        </BCardHeader>
-        <BCardBody>
-            <BCardText>{{ description }}</BCardText>
-            <b-badge v-for="tech in technology" variant="info" class="m-1">{{ tech }}</b-badge>
+
+<v-col>
+    <v-card height="300">
+        <v-card-title>
+            <h3>{{ name }}</h3>
+        </v-card-title>
+        <v-card-text>
+            <p class="m-3">{{ description }}</p>
+            <div class="m-3">
+                <v-chip v-for="tech in technology" class="m-2" color="primary">{{ tech }}</v-chip>
+            </div>
             <br>
-            <a :href="link" class="btn btn-primary m-3">Go to project</a>
-        </BCardBody>
-    </BCard>
-</BCol>
+            <v-spacer></v-spacer>
+            <v-btn :href="link" class="btn btn-primary m-3">Go to project</v-btn>
+        </v-card-text>
+    </v-card>
+</v-col>
 </template>
 
 <script>
