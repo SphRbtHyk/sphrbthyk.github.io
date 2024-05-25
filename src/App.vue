@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
 
   <v-app>
-    <v-navigation-drawer v-model="sidebar" app>
+    <v-navigation-drawer v-model="sidebar" class="hidden-sm-and-up" app>
       <v-list justify="space-around">
         <v-list-item v-for="item in menuItems" :key="item.title" :to="item.path">
           <v-list-item-action>
@@ -17,9 +17,8 @@ import { RouterLink, RouterView } from 'vue-router'
     </v-navigation-drawer>
 
     <v-toolbar app>
-      <span class="hidden-sm-and-up">
-        <v-app-bar-nav-icon @click="sidebar = !sidebar">
-        </v-app-bar-nav-icon> </span>
+        <v-app-bar-nav-icon class="hidden-sm-and-up" @click="sidebar = !sidebar">
+        </v-app-bar-nav-icon>
       <v-toolbar-title>
         <v-btn flat to="/">
           <v-icon left dark>mdi-home</v-icon>
