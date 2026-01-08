@@ -1,15 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome !</title>
-      <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <title>Sophie Robert-Hayek | Computational Humanities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color system - inspired by manuscript aesthetics */
+            --ink-dark: #1a1a1a;
+            --ink-medium: #4a4a4a;
+            --parchment: #fdfaf5;
+            --parchment-dark: #f5f0e8;
+            --accent-primary: #8b4513;
+            --accent-secondary: #2c5f4f;
+            --accent-tertiary: #6b4423;
+            --border-subtle: rgba(139, 69, 19, 0.15);
+            
+            /* Typography scale */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Crimson Pro', serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1.125rem;
+            --text-lg: 1.5rem;
+            --text-xl: 2rem;
+            --text-2xl: 3rem;
+            
+            /* Spacing */
+            --space-unit: 1rem;
+            --section-gap: calc(var(--space-unit) * 5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.65;
+            color: var(--ink-dark);
+            background: var(--parchment);
+            overflow-x: hidden;
+        }
+        
+        /* Background texture effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 69, 19, 0.03) 2px, rgba(139, 69, 19, 0.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Header */
+        header {
+            padding: 4rem 0 3rem;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: var(--section-gap);
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .name-title {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 900;
+            color: var(--accent-tertiary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: var(--text-lg);
+            color: var(--ink-medium);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .affiliation {
+            font-size: var(--text-sm);
+            color: var(--ink-medium);
+            line-height: 1.6;
+        }
+        
+        .affiliation strong {
+            color: var(--ink-dark);
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: flex-end;
+            text-align: right;
+        }
+        
+        .contact-link {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--accent-primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .contact-link:hover {
+            border-bottom-color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 250, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: var(--section-gap);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--ink-medium);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-primary);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section styling */
+        section {
+            margin-bottom: var(--section-gap);
+            animation: fadeIn 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        
+        h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--accent-tertiary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-subtle);
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--ink-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Research interests */
+        .research-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .interest-card {
+            background: var(--parchment-dark);
+            padding: 2rem;
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .interest-card:hover {
+            transform: translateX(8px);
+            box-shadow: -4px 4px 0 var(--accent-secondary);
+        }
+        
+        .interest-card h3 {
+            color: var(--accent-tertiary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .interest-card p {
+            font-size: var(--text-sm);
+            line-height: 1.6;
+            color: var(--ink-medium);
+        }
+        
+        /* Publications */
+        .publication-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent-primary);
+            color: var(--parchment);
+        }
+        
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .publication-item {
+            padding: 1.5rem;
+            background: var(--parchment-dark);
+            border-left: 3px solid var(--accent-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            background: white;
+            transform: translateX(4px);
+            border-left-width: 6px;
+        }
+        
+        .pub-title {
+            font-weight: 600;
+            color: var(--ink-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .pub-authors {
+            color: var(--ink-medium);
+            font-size: var(--text-sm);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-venue {
+            font-style: italic;
+            color: var(--accent-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .pub-year {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            color: var(--ink-medium);
+        }
+        
+        .pub-type {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            padding: 0.25rem 0.5rem;
+            background: var(--accent-primary);
+            color: var(--parchment);
+            text-transform: uppercase;
+        }
+        
+        .pub-link {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            color: var(--accent-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-primary);
+            transition: opacity 0.3s ease;
+        }
+        
+        .pub-link:hover {
+            opacity: 0.7;
+        }
+        
+        /* Experience timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-subtle);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            border: 2px solid var(--parchment);
+        }
+        
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-org {
+            color: var(--accent-secondary);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            font-size: var(--text-sm);
+        }
+        
+        .timeline-desc {
+            color: var(--ink-medium);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: var(--section-gap);
+            padding: 3rem 0;
+            border-top: 2px solid var(--border-subtle);
+            text-align: center;
+            color: var(--ink-medium);
+            font-size: var(--text-sm);
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            :root {
+                --text-2xl: 2rem;
+                --text-xl: 1.5rem;
+                --text-lg: 1.25rem;
+                --section-gap: calc(var(--space-unit) * 3);
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: -2.5rem;
+            }
+            
+            .research-interests {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body::before {
+                display: none;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .filter-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="name-title">
+                    <h1>Sophie Robert-Hayek</h1>
+                    <p class="subtitle">Associate Professor in Computational Philology</p>
+                    <div class="affiliation">
+                        <strong>Sorbonne Université</strong><br>
+                        Laboratoire Sens, Texte, Informatique et Histoire<br>
+                        Faculté des Lettres, Paris, France
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:sophie.robert@sorbonne-universite.fr" class="contact-link">
+                        sophie.robert@sorbonne-universite.fr
+                    </a>
+                    <a href="https://github.com/SphRbtHyk" class="contact-link" id="github-link">GitHub</a>
+                    <a href="https://scholar.google.com/citations?user=lPW8cRAAAAAJ&hl=en&oi=sra" class="contact-link" id="scholar-link">Google Scholar</a>
+                    <a href="https://www.researchgate.net/profile/Sophie-Robert-Hayek" class="contact-link" id="orcid-link">Research Gate</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p style="max-width: 800px; line-height: 1.8;">
+                I am an Associate Professor (Maîtresse de Conférences) in Computational Philology at Sorbonne Université (Laboratoire STIH, UFR de Sociologie et Informatique pour les SHS, Paris, France), working at the intersection 
+                of artificial intelligence and ancient text analysis. 
+                My research interests consist mainly on the use quantitative approaches for textual criticism, and the development of computational linguistic tools for the study of the transmission of texts in Late Antiquity.
+            </p>
+        </section>
+        
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="research-interests">
+                <div class="interest-card">
+                    <h3>Quantitative Approaches to Textual Criticism</h3>
+                    <p>
+                        Applying statistical and computational methods for textual criticism, including 
+                        manuscript classification, automatic collations and more generally textual analysis. 
+                        Focus on developing quantitative frameworks for understanding textual transmission, 
+                        variation patterns, and manuscript relationships, especially for the biblical tradition in its Greek and Latin form.
+                    </p>
+                </div>
+                
+                <div class="interest-card">
+                    <h3>Computational Linguistics for Ancient and Koinè Greek</h3>
+                    <p>
+                        Developing specialized NLP tools and linguistic models for Ancient Greek texts. Working on morphological analysis, 
+                        syntactic parsing, and lemmatization tailored to the specific challenges of late antiquity manuscripts, 
+                        orthographic variation, and manuscript-specific phenomena like nomina sacra.
+                    </p>
+                </div>
+        
+                
+                <div class="interest-card">
+                    <h3>Computational Stylometry and Source Criticism</h3>
+                    <p>
+                        Applying stylometric analysis to authorship attribution and source detection in ancient texts. 
+                        Research on the Synoptic Problem, Pauline corpus, and other questions of literary composition 
+                        using  statistical methods and machine learning approaches.
+                    </p>
+                </div>
+                
+                <div class="interest-card">
+                    <h3>Digital Tools for Textual Criticism</h3>
+                    <p>
+                        Creating digital infrastructure for biblical research, including web applications for 
+                        manuscript transcription, automatic critical edition generation, and collaborative scholarly 
+                        workflows. Integration of HTR (Handwritten Text Recognition) with computational analysis 
+                        pipelines for large-scale manuscript processing and textual analysis.
+                    </p>
+                </div>
 
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+            </div>
+        </section>
+        
+        <section id="publications">
+            <h2>Selected Latest Publications</h2>
+            
+            <div class="publication-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="journal">Journals</button>
+                <button class="filter-btn" data-filter="conference">Conferences</button>
+                <button class="filter-btn" data-filter="chapter">Book Chapters</button>
+                <button class="filter-btn" data-filter="book">Edited Volumes</button>
+            </div>
+            
+            <div class="publication-list" id="publication-list">
+                <!-- Publications will be dynamically inserted here -->
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Academic Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 2025 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Associate Professor in Computational Philology</h3>
+                        <div class="timeline-org">Sorbonne Université, Paris, France</div>
+                        <p class="timeline-desc">
+                            Laboratoire Sens, Texte, Informatique et Histoire
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2023 – Aug 2025</div>
+                    <div class="timeline-content">
+                        <h3>Postdoctoral Researcher in Computational Humanities</h3>
+                        <div class="timeline-org">University of Lorraine, Metz, France</div>
+                        <p class="timeline-desc">
+                            Laboratoire Écritures. Research on computational stemmatology, biblical manuscript 
+                            analysis, and development of digital humanities tools.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2021 – Aug 2023</div>
+                    <div class="timeline-content">
+                        <h3>Data Engineer/Scientist</h3>
+                        <div class="timeline-org">Atos-Bull, Échirolles, France</div>
+                        <p class="timeline-desc">
+                            Data Management Team. Applied machine learning and optimization techniques to 
+                            high-performance computing systems.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2019 – Nov 2021</div>
+                    <div class="timeline-content">
+                        <h3>PhD in Computer Science</h3>
+                        <div class="timeline-org">Université Paris-Saclay, France</div>
+                        <p class="timeline-desc">
+                            Dissertation: "Auto-optimization of computer systems: application to I/O accelerators". 
+                            CIFRE Fellowship with Atos-UVSQ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Current Projects</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 – 2027</div>
+                    <div class="timeline-content">
+                        <h3>ANR SHERBET</h3>
+                        <div class="timeline-org">Co-Principal Investigator | Funding: €429,302</div>
+                        <p class="timeline-desc">
+                            Bayesian algorithms for computational stemmatology of Dead Sea Scrolls. 
+                            Agence Nationale de Recherche.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 – 2025</div>
+                    <div class="timeline-content">
+                        <h3>SCRIBES Project</h3>
+                        <div class="timeline-org">Co-Principal Investigator | Funding: €40,000</div>
+                        <p class="timeline-desc">
+                            Web application for manuscript transcription and automatic critical edition generation. 
+                            Biblissima+.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 – 2024</div>
+                    <div class="timeline-content">
+                        <h3>Computing Antiquity</h3>
+                        <div class="timeline-org">International Collaboration</div>
+                        <p class="timeline-desc">
+                            Collaboration with Jacob Mortensen (PI), Aarhus University, Denmark.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 – 2026</div>
+                    <div class="timeline-content">
+                        <h3>Cultural Evolution of Early Christianity</h3>
+                        <div class="timeline-org">International Collaboration</div>
+                        <p class="timeline-desc">
+                            Collaboration with Nina Nikki (PI), University of Helsinki, Finland.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="events">
+            <h2>Scientific Events</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023, 2024, 2025</div>
+                    <div class="timeline-content">
+                        <h3>Py4SHS Summer School</h3>
+                        <div class="timeline-org">Co-Organizer | University of Lorraine</div>
+                        <p class="timeline-desc">
+                            International digital humanities training program for PhD students and researchers, 
+                            focusing on Python programming and computational methods for humanities scholarship.
+                        </p>
+                    </div>
+                </div>
+                
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 – 2028</div>
+                    <div class="timeline-content">
+                        <h3>EABS Panel Chair</h3>
+                        <div class="timeline-org">Computational Approaches to Biblical Studies</div>
+                        <p class="timeline-desc">
+                            Panel chair for the European Association of Biblical Studies, coordinating sessions 
+                            on computational methods in biblical scholarship.
+                        </p>
+                    </div>
+                </div>
+                
+        </section>
+
+                <section id="teaching">
+            <h2>Teaching</h2>
+            <b>All of my lectures are freely available on my <a href="https://github.com/SphRbtHyk/NLP_courses/tree/main" class="contact-link" id="github-link">GitHub</a>.</b>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Master 1 (M1)</div>
+                    <div class="timeline-content">
+                        <h3>Formal Grammar</h3>
+                        <div class="timeline-org">Master Langue et Informatique</div>
+                        <p class="timeline-desc">
+                            Introduction to formal grammar theory, covering context-free grammars, parsing algorithms, 
+                            and their applications to natural language processing. Students learn to analyze linguistic 
+                            structures using formal computational frameworks.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Licence 3 (L3)</div>
+                    <div class="timeline-content">
+                        <h3>Large Language Models (LLMs)</h3>
+                        <div class="timeline-org">Licence Sciences du Langage</div>
+                        <p class="timeline-desc">
+                            Introduction to modern large language models, their architecture, training, and applications. 
+                            Course covers transformer models, prompt engineering, and practical applications of LLMs in 
+                            linguistic research and humanities scholarship.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Licence 2 (L2)</div>
+                    <div class="timeline-content">
+                        <h3>Algorithms for Social Sciences and Humanities</h3>
+                        <div class="timeline-org">Licence Sciences du Langage</div>
+                        <p class="timeline-desc">
+                            Foundational course in algorithmic thinking and computational methods for humanities students. 
+                            Covers basic programming concepts, data structures, and algorithms with applications to textual 
+                            analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="max-width: 600px; line-height: 1.8;">
+                I welcome inquiries from prospective students, collaborators, and anyone interested in computational 
+                approaches to ancient texts and digital humanities. Feel free to reach out via email!
+            </p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Sophie Robert-Hayek. All rights reserved.</p>
+            <p style="font-family: var(--font-mono); font-size: var(--text-xs); opacity: 0.6;">
+                Last updated: January 2025
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Publication data
+        const publications = [
+            {
+                type: 'journal',
+                title: 'The Textual Classifications of the Gospel of John in the Old Latin. A statistical reassessment',
+                authors: 'Sophie Robert-Hayek',
+                venue: 'New Testament Studies',
+                year: 2025,
+                status: 'To appear',
+                link: null
+            },
+            {
+                type: 'conference',
+                title: 'Stylometric Perspectives on the Composition Debate of Acts of Andrew',
+                authors: 'Christian Vrangbæk, Sophie Robert-Hayek',
+                venue: 'Computational Humanities Research 2025',
+                year: 2025,
+                status: 'Accepted',
+                link: null
+            },
+            {
+                type: 'conference',
+                title: 'Unraveling the Synoptic puzzle: stylometric insights into Luke\'s potential use of Matthew',
+                authors: 'Sophie Robert-Hayek, Jacques Istas, Frédérique Rey',
+                venue: '4th Conference On Computational Humanities Research (CHR)',
+                year: 2023,
+                link: 'https://github.com/SphRbtHyk/sphrbthyk.github.io/blob/main/public/production/papers/chr_2023.pdf'
+            },
+            {
+                type: 'chapter',
+                title: 'Stylometric Approaches to Source Criticism: A Case Study on the Parables of the Synoptic Gospels',
+                authors: 'Sophie Robert-Hayek',
+                venue: 'Proceedings of the Style and Computation Conference, Vandenhoeck & Ruprecht',
+                year: 2025,
+                status: 'To be published',
+                link: null
+            },
+            {
+                type: 'chapter',
+                title: 'Computing Danish Bible Translations: A Stylometric Analysis of Bibelen 2020 in Comparison with DO92',
+                authors: 'Eva Elisabeth Houth Vrangbæk, Christian Houth Vrangbæk, Kasper Bro Larsen, Sophie Robert-Hayek',
+                venue: 'Proceedings of the Style and Computation Conference, Vandenhoeck & Ruprecht',
+                year: 2025,
+                status: 'To be published',
+                link: null
+            },
+            {
+                type: 'chapter',
+                title: 'Layout and Meaning. Stichography in Hebrew Manuscripts: the case of Psalm 83 in Mas 1e and the Hebrew manuscripts of Ben Sira',
+                authors: 'Frédérique Rey, Sophie Robert-Hayek, Davide D\'Amico',
+                venue: 'Reading: Performance and Materiality in Hebrew and Aramaic Traditions, Cambridge: Open Book Publishers',
+                year: 2025,
+                status: 'To be published',
+                link: 'https://github.com/SphRbtHyk/sphrbthyk.github.io/blob/main/public/production/papers/stychography_2025.pdf'
+            },
+            {
+                type: 'chapter',
+                title: 'Stemma Codicum and Urtext: The Stemma of the Hebrew Manuscripts of Ben Sira as Test Case',
+                authors: 'Frédérique Rey, Sophie Robert-Hayek, Davide D\'Amico',
+                venue: 'Urtext, Archetype, Fluidity or Textual Convergence, Peeters',
+                year: 2025,
+                status: 'To be published',
+                link: 'https://github.com/SphRbtHyk/sphrbthyk.github.io/blob/main/public/production/papers/stemma_codicum_urtext_2025.pdf'
+            },
+            {
+                type: 'book',
+                title: 'Urtext, Archetype, Fluidity or Textual Convergence. The Quest for the Texts of the Hebrew Bible',
+                authors: 'Frédérique Rey, Stefan Schorch, Sophie Robert-Hayek (eds.)',
+                venue: 'Contributions to Biblical Exegesis & Theology, Peeters',
+                year: 2024,
+                status: 'To be published',
+                link: null
+            },
+            {
+                type: 'book',
+                title: 'Current trends in phylogeny and computational stemmatology',
+                authors: 'Frédérique Rey, Sophie Robert-Hayek (eds.)',
+                venue: 'Digital Biblical Studies, Brill',
+                year: 2025,
+                status: 'Under edition',
+                link: null
+            }
+        ];
+        
+        // Populate publications
+        function renderPublications(filter = 'all') {
+            const container = document.getElementById('publication-list');
+            const filteredPubs = filter === 'all' 
+                ? publications 
+                : publications.filter(pub => pub.type === filter);
+            
+            container.innerHTML = filteredPubs.map(pub => `
+                <div class="publication-item" data-type="${pub.type}">
+                    <div class="pub-title">${pub.title}</div>
+                    <div class="pub-authors">${pub.authors}</div>
+                    <div class="pub-venue">${pub.venue}</div>
+                    <div class="pub-meta">
+                        <span class="pub-year">${pub.year}</span>
+                        <span class="pub-type">${pub.type}</span>
+                        ${pub.status ? `<span style="font-size: var(--text-xs); color: var(--accent-secondary); font-style: italic;">${pub.status}</span>` : ''}
+                        ${pub.link ? `<a href="${pub.link}" class="pub-link" target="_blank">PDF</a>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderPublications(this.dataset.filter);
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Initialize publications
+        renderPublications();
+        
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
 </html>
